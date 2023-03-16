@@ -15,3 +15,16 @@ function fibs(n) {
     }
     return fibArray
 }
+
+function fibsRec(n) {
+    if (n === 1) {
+        return [0]
+    }
+    if (n === 2) {
+        return [0, 1]
+    }
+    const previousFibs = fibsRec(n - 1)
+    // previousFibs[n - 2] is the equivalent of F(n - 1)
+    // See https://en.wikipedia.org/wiki/Fibonacci_sequence
+    return [...previousFibs, previousFibs[n - 2] + previousFibs[n - 3]]
+}
